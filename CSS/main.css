@@ -31,15 +31,21 @@
 }
 
 .album {
-    display: grid;
-    place-items: center;
+    display: flex;
     border: none;
     border-radius: .5vw;
     background: #151515;
 }
 
-.album img {
-    border-radius: .5vw;
+.album__img {
     width: 100%;
     height: 100%;
+    border-radius: .5vw;
+    position: relative;
+    z-index: 1;
 }
+
+/* .album:active .album__img {
+    z-index: 100;
+} */
+
