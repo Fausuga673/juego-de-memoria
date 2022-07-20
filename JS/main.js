@@ -1,6 +1,7 @@
 const albumContainer = document.getElementById('album-container');
 
 let id = 1;
+let number= 1;
 
 for (i = 1; i <= 2 ; i++) {
 
@@ -9,11 +10,20 @@ for (i = 1; i <= 2 ; i++) {
     
     for (let albumPosition = [0, 1, 2, 3, 4, 5, 6, 7], i = albumPosition.length; i--; ) {
         
-        let valuePositionRandom = albumPosition.splice(Math.trunc(Math.random() * (i + 1)), 1)[0];
-        console.log('album random: ' + albumRandomValue[valuePositionRandom]);
-        
-        albumContainer.innerHTML += `<img class='album__img' id='${id++}' src='IMG/album${albumRandomValue[valuePositionRandom]}.jpg'>`;
+        let valueRandomPosition = albumPosition.splice(Math.trunc(Math.random() * (i + 1)), 1)[0];
+
+        albumContainer.innerHTML += `<button id="${id++}" onclick='getAlbum(${number++})' value='${albumRandomValue[valueRandomPosition]}' class="album"><img class='album__img' src='IMG/album${albumRandomValue[valueRandomPosition]}.jpg'></button>`;
         
     }
     
+}
+
+function getAlbum(alb) {
+
+    const albumBtn = document.getElementById(alb);
+    const albumImg = document.getElementById(alb);
+
+    if (albumBtn.value == 1) albumImg.style.zIndex = '1'
+    else console.log('error');
+
 }
