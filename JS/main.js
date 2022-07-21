@@ -3,7 +3,7 @@ const albumContainer = document.getElementById('album-container');
 let idBtn = 1;
 let number = 1;
 
-for (i = 1; i <= 2 ; i++) {
+for (i = 1; i <= 2; i++) {
 
     let albumRandomValue = [1, 2, 3, 4, 5, 6, 7, 8];
     albumRandomValue = albumRandomValue.sort(function() {return Math.random() - 0.5});
@@ -18,28 +18,34 @@ for (i = 1; i <= 2 ; i++) {
 
 }
 
-let arreglo = []
+let btnValue = [];
 
 function getAlbum(alb) {
 
     const albumBtn = document.getElementById(alb);
     const albumImg = document.getElementById(alb).firstChild;
 
-    arreglo.push(albumBtn.value);
-    //console.log(arreglo[0])
-
-    albumBtn.addEventListener('mouseout', ()=> {
-        console.log('saliste');
-    })
-
     albumBtn.addEventListener('click', (e)=> {
-        if (arreglo[0] == e.target.value) {
-            albumBtn.disabled = true;
+
+        albumBtn.disabled = true;
+        btnValue.push(albumBtn.value);
+        btnValue.splice(1);
+
+        if (btnValue[0] == e.target.value) {
+
+            btnValue.push(albumBtn.value);
+
             albumImg.style.zIndex = '1';
             console.log('son iguales');
+
         } else {
+
+            albumImg.style.zIndex = '1';
+
             console.log('no son iguales');
+            
         }
+
     })
 
 }
