@@ -19,6 +19,7 @@ for (i = 1; i <= 2; i++) {
 }
 
 let btnValue = [];
+let idAlbum = [];
 
 function getAlbum(alb) {
 
@@ -28,20 +29,34 @@ function getAlbum(alb) {
     albumBtn.addEventListener('click', (e)=> {
 
         albumBtn.disabled = true;
+        albumImg.style.zIndex = '1';
+
         btnValue.push(albumBtn.value);
         btnValue.splice(1);
+        idAlbum.push(albumBtn.id);
 
         if (btnValue[0] == e.target.value) {
 
             btnValue.push(albumBtn.value);
-
-            albumImg.style.zIndex = '1';
             console.log('son iguales');
 
         } else {
+            
+            let firstAlbumBtn = document.getElementById(idAlbum[0]);
+            let secondAlbumBtn = document.getElementById(idAlbum.at(-1));
+            let firstAlbumImg = document.getElementById(idAlbum[0]).firstChild;
+            let secondAlbumImg = document.getElementById(idAlbum.at(-1)).firstChild;
 
-            albumImg.style.zIndex = '1';
+            const hiddenImage = ()=> {
+                setTimeout( ()=> {
+                    firstAlbumImg.style.zIndex = '-1';
+                    secondAlbumImg.style.zIndex = '-1';
+                    firstAlbumBtn.disabled = false
+                    secondAlbumBtn.disabled = false
 
+                }, 1000);
+            }
+            hiddenImage();
             console.log('no son iguales');
             
         }
