@@ -12,7 +12,7 @@ for (i = 1; i <= 2; i++) {
         
         let valueRandomPosition = albumPosition.splice(Math.trunc(Math.random() * (i + 1)), 1)[0];
 
-        albumContainer.innerHTML += `<button id="${idBtn++}" onmouseover='getAlbum(${number++})' value='${albumRandomValue[valueRandomPosition]}' class="album"><img class='album__img' src='IMG/album${albumRandomValue[valueRandomPosition]}.jpg'></button>`;
+        albumContainer.innerHTML += `<button id="${idBtn++}" onclick='getAlbum(${number++})' value='${albumRandomValue[valueRandomPosition]}' class="album"><img class='album__img' src='IMG/album${albumRandomValue[valueRandomPosition]}.jpg'></button>`;
         
     }
 
@@ -26,41 +26,43 @@ function getAlbum(alb) {
     const albumBtn = document.getElementById(alb);
     const albumImg = document.getElementById(alb).firstChild;
 
-    albumBtn.addEventListener('click', (e)=> {
+    albumImg.style.zIndex = '1';
+    albumBtn.disabled = true;
 
-        albumBtn.disabled = true;
-        albumImg.style.zIndex = '1';
+    btnValue.push(albumBtn.value);
+    idAlbum.push(albumBtn.id);
 
-        btnValue.push(albumBtn.value);
-        btnValue.splice(1);
-        idAlbum.push(albumBtn.id);
+    const firstAlbumBtn = document.getElementById(idAlbum[0]);
+    const secondAlbumBtn = document.getElementById(idAlbum.at(-1));
+    const firstAlbumImg = document.getElementById(idAlbum[0]).firstChild;
+    const secondAlbumImg = document.getElementById(idAlbum.at(-1)).firstChild;
 
-        if (btnValue[0] == e.target.value) {
+    if (btnValue.length == 2) {
 
-            btnValue.push(albumBtn.value);
-            console.log('son iguales');
+        if (btnValue.at(-2) == btnValue.at(-1)) {
 
+            btnValue.splice(0);
+            idAlbum.splice(0);
+            
         } else {
             
-            let firstAlbumBtn = document.getElementById(idAlbum[0]);
-            let secondAlbumBtn = document.getElementById(idAlbum.at(-1));
-            let firstAlbumImg = document.getElementById(idAlbum[0]).firstChild;
-            let secondAlbumImg = document.getElementById(idAlbum.at(-1)).firstChild;
+            btnValue.splice(0);
+            idAlbum.splice(0);
+
+            firstAlbumBtn.disabled = false;
+            secondAlbumBtn.disabled = false;
 
             const hiddenImage = ()=> {
                 setTimeout( ()=> {
+        
                     firstAlbumImg.style.zIndex = '-1';
                     secondAlbumImg.style.zIndex = '-1';
-                    firstAlbumBtn.disabled = false
-                    secondAlbumBtn.disabled = false
-
+        
                 }, 1000);
             }
             hiddenImage();
-            console.log('no son iguales');
-            
         }
 
-    })
+    }
 
 }
