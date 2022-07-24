@@ -1,0 +1,29 @@
+@media (max-width: 1200px) {
+    .stadistics {
+        width: max(40vw, 60vw);
+    }
+
+    .stadistics__tittle { 
+        font-size: max(4vw, 20px);
+    }
+
+    .album-container {
+        height: max(40vw, 60vw);
+        width: max(40vw, 60vw);
+    }
+}
+
+@media (max-width: 800px) {
+    .stadistics {
+        width: max(50vw, 80vw);
+    }
+
+    .stadistics__tittle { 
+        font-size: max(5vw, 20px);
+    }
+
+    .album-container {
+        height: max(40vw, 80vw);
+        width: max(40vw, 80vw);
+    }
+}
