@@ -7,13 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de memoria</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+
     <link rel="icon" type="image/x-icon" href="IMG/emoji.png">
     
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/query.css">
 
 </head>
 <body>
     <main class="container">
+        <section class="stadistics">
+            <h2 class="stadistics__tittle">Memorama</h2>
+            <article class="stadistics__control">
+                <h2 class="stadistics__control--time">Tiempo: 1m</h2>
+                <h2 class="stadistics__control--time">Aciertos: <span id="point">0</span></h2>
+                <a href="index.html" class="stadistics__control--newgame">Nuevo juego!</a>
+            </article>
+        </section>
         <section class="album-container" id="album-container"></section>
     </main>
     <script src="JS/main.js"></script>
