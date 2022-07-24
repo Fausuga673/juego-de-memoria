@@ -27,6 +27,7 @@
 
 .stadistics__tittle { 
     color: #f1f1f1;
+    letter-spacing: 3px;
     text-align: left;
     font-size: max(3vw, 20px);
 }
@@ -34,15 +35,16 @@
 .stadistics__control--time, .stadistics__control--newgame{
     color: #f1f1f1;
     text-align: center;
+    letter-spacing: 2px;
     font-size: max(1vw, 15px);
+    margin-bottom: .3vw;
 }
 
 .stadistics__control--newgame {
     background: rgb(255, 8, 70);
-    padding-right: max(1vw, 5px);
-    padding-left: max(1vw, 5px);
+    padding: max(.1vw, 2.5px) max(1vw, 5px);
     border-radius: 100px;
-    box-shadow: 0 0 .2vw rgba(0, 0, 0, 0.872);
+   /*  box-shadow: 0 0 .2vw rgba(0, 0, 0, 0.872); */
 }
 
 .album-container {
