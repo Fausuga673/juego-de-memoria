@@ -18,6 +18,7 @@ for (i = 1; i <= 2; i++) {
 
 }
 
+p = 1;
 let btnValue = [];
 let idAlbum = [];
 
@@ -25,6 +26,7 @@ function getAlbum(alb) {
 
     const albumBtn = document.getElementById(alb);
     const albumImg = document.getElementById(alb).firstChild;
+    const points = document.getElementById('point');
 
     albumImg.style.zIndex = '1';
     albumBtn.disabled = true;
@@ -43,6 +45,7 @@ function getAlbum(alb) {
 
             btnValue.splice(0);
             idAlbum.splice(0);
+            points.innerHTML = p++;
             
         } else {
             
