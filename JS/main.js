@@ -12,13 +12,13 @@ for (i = 1; i <= 2; i++) {
         
         let valueRandomPosition = albumPosition.splice(Math.trunc(Math.random() * (i + 1)), 1)[0];
 
-        albumContainer.innerHTML += `<button id="${idBtn++}" onclick='getAlbum(${number++})' value='${albumRandomValue[valueRandomPosition]}' class="album"><img class='album__img' src='IMG/album${albumRandomValue[valueRandomPosition]}.jpg'></button>`;
+        albumContainer.innerHTML += `<button id='${idBtn++}' onclick='getAlbum(${number++})' value='${albumRandomValue[valueRandomPosition]}' class="album"><img class='album__img' src='IMG/album${albumRandomValue[valueRandomPosition]}.jpg'></button>`;
         
     }
 
 }
 
-p = 1;
+let score = 1;
 let btnValue = [];
 let idAlbum = [];
 
@@ -45,8 +45,8 @@ function getAlbum(alb) {
 
             btnValue.splice(0);
             idAlbum.splice(0);
-            points.innerHTML = p++;
-            
+            points.innerHTML = score++;
+         
         } else {
             
             btnValue.splice(0);
@@ -55,15 +55,15 @@ function getAlbum(alb) {
             firstAlbumBtn.disabled = false;
             secondAlbumBtn.disabled = false;
 
-            const hiddenImage = ()=> {
-                setTimeout( ()=> {
+            const hideImage = ()=> {
+                setTimeout(()=> {
         
                     firstAlbumImg.style.zIndex = '-1';
                     secondAlbumImg.style.zIndex = '-1';
-        
+
                 }, 1000);
             }
-            hiddenImage();
+            hideImage();
         }
 
     }
