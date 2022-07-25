@@ -52,14 +52,13 @@ function getAlbum(alb) {
             btnValue.splice(0);
             idAlbum.splice(0);
 
-            firstAlbumBtn.disabled = false;
-            secondAlbumBtn.disabled = false;
-
             const hideImage = ()=> {
                 setTimeout(()=> {
         
                     firstAlbumImg.style.zIndex = '-1';
                     secondAlbumImg.style.zIndex = '-1';
+                    firstAlbumBtn.disabled = false;
+                    secondAlbumBtn.disabled = false;
 
                 }, 1000);
             }
